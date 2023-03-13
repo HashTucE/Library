@@ -46,7 +46,12 @@ I recommend you to install it with [his](https://hub.docker.com/r/sonatype/nexus
     
 # Deployment of Library to Nexus
 
-- Go to the root of "Library" with a prompt and run the command :
+- Start to clone "Library" to your local machine.
+- To the root of "Library" execute this command to create a package :
+    ```
+    mvn package
+    ```
+- Then enter this command to deploy Library to your Nexus repository :
     ```
     mvn deploy
     ```

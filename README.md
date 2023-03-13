@@ -22,12 +22,12 @@ I recommend you to install it with [his](https://hub.docker.com/r/sonatype/nexus
   <img src=https://user-images.githubusercontent.com/95872501/224268285-bc76f6de-5481-49a2-b50c-66041ea6a6f6.png>
 </p>
 
-3. The first time you will sign in, you will be invit to change your admin password. Your credentials should be username : "admin" and password : "admin123" but it depends of your version of nexus so if it won't work, this command should show you the intitial password replacing ??? by the id of the nexus container as you can see above :
+3. The first time you will sign in, you will be invit to change your admin password. Your credentials should be username : `admin` and password : `admin123` but it depends of your version of nexus so if it won't work, this command should show you the intitial password :
     ```
-    docker exec -it ??? cat /nexus-data/admin.password 
+    docker exec -it [nexus_container_id] cat /nexus-data/admin.password 
     ```
     
-4. If it not exists, you will have to create a file named settings.xml on you maven configuration hidden folder ".m2". As you can see for this project I am using the already existing "maven-snapshots" (hosted) repository, so you will just have to set your appropriate Nexus's username and password :
+4. If it not exists, you will have to create a file named settings.xml on you maven configuration hidden folder `.m2`. As you can see for this project I am using the already existing `maven-snapshots (hosted)` repository, so you will just have to set your appropriate Nexus's username and password :
 
         <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -46,13 +46,13 @@ I recommend you to install it with [his](https://hub.docker.com/r/sonatype/nexus
     
 # Deployment of Library to Nexus
 
-- Start to clone "Library" to your local machine.
-- To the root of "Library" execute this command to create a package :
+- Start to clone `Library` to your local machine.
+- To the root of `Library` execute this command to create a package :
     ```
     mvn package
     ```
-- Then enter this command to deploy Library to your Nexus repository :
+- Then enter this command to deploy `Library` to your `Nexus` repository :
     ```
     mvn deploy
     ```
-    And you should now see your .jar inside the repository "maven-snapshots" on your Nexus interface.
+    And you should now see your `.jar` inside the repository `maven-snapshots` on your `Nexus` interface.
